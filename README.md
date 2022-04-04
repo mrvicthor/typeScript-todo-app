@@ -48,7 +48,7 @@ Users should be able to:
 - [React](https://reactjs.org/) - JS library
 - React Beautiful DND
 - TypeScript
--Scss
+- Scss
 
 ### What I learned
 
