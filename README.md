@@ -33,8 +33,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [https://github.com/mrvicthor/typescript-todo-app]
-- Live Site URL: [Add live site URL here]
+- Solution URL: [https://github.com/mrvicthor/typeScript-todo-app]
+- Live Site URL: [https://type-script-todo-app-omega.vercel.app/]
 
 ## My process
 
@@ -48,7 +48,7 @@ Users should be able to:
 - [React](https://reactjs.org/) - JS library
 - React Beautiful DND
 - TypeScript
-  -Scss
+-Scss
 
 ### What I learned
 
