@@ -1,0 +1,8 @@
+@use "base";
+body {
+  // background: base.$very-light-gray;
+  font-family: "Josefin Sans", sans-serif;
+}
+input {
+  font: inherit;
+}

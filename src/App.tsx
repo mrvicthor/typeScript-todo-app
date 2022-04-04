@@ -1,26 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.scss";
+import Todos from "./components/Todos";
 
-function App() {
+const App = () => {
+  const [toggleTheme, setToggleTheme] = useState<boolean>(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className={!toggleTheme ? "grad1" : "grad1_dark"}></div>
+      <Todos toggleTheme={toggleTheme} setToggleTheme={setToggleTheme} />
     </div>
   );
-}
+};
 
 export default App;
