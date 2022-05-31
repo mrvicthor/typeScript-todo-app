@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import InputField from "./components/InputField";
+import { useDispatch, useSelector, TypedUseSelectorHook } from "react-redux";
+import { addTodo, selectTodos } from "./features/todoSlice";
+import TodoList from "./components/TodoList";
+import "./App.css";
+import { RootState } from "./redux/store";
 
-function App() {
+const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
+
+const App: React.FC = () => {
+  const dispatch = useDispatch();
+  const todos = useTypedSelector(selectTodos);
+  const [todo, setTodo] = useState<string>("");
+
+  const handleAdd = (e: React.FormEvent<EventTarget>) => {
+    e.preventDefault();
+    if (todo) {
+      dispatch(
+        addTodo({
+          id: Date.now(),
+          todo,
+          isDone: false,
+        })
+      );
+      setTodo("");
+    }
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <span className="heading">Taskify</span>
+      <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
+
+      <TodoList todos={todos} />
     </div>
   );
-}
+};
 
 export default App;
